@@ -4,4 +4,5 @@
     <string name="nazwisko">Nazwisko: </string>
     <string name="oceny">Liczba ocen: </string>
     <string name="ocenyBtn">Oceny</string>
+    <string name="title_activity_second_activity">second_activity</string>
 </resources>
