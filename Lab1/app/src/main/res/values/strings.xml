@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Lab1</string>
+    <string name="imie">Imie: </string>
+    <string name="nazwisko">Nazwisko: </string>
+    <string name="oceny">Liczba ocen: </string>
+    <string name="ocenyBtn">Oceny</string>
+</resources>
