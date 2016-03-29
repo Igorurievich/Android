@@ -2,8 +2,8 @@ package com.example.igor.myfirstapp;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -12,19 +12,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MyActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     EditText etImie;
-    EditText etNazw;
+    EditText etNazwisko;
     EditText etLiczba;
     Button btnOceny;
-    /**
-     * Called when the activity is first created.
-     */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.my_activity);
+        setContentView(R.layout.activity_main);
 
         btnOceny = (Button) findViewById(R.id.button);
         btnOceny.setOnClickListener(new View.OnClickListener() {
@@ -36,24 +34,24 @@ public class MyActivity extends Activity {
 
 
         etImie = (EditText) findViewById(R.id.etImie);
-        etNazw = (EditText) findViewById(R.id.etNazw);
+        etNazwisko = (EditText) findViewById(R.id.etNazw);
         etImie.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 EditText editText = (EditText) v;
                 if (!checkEmptyText(editText.getText().toString()) && !hasFocus) {
-                    Toast.makeText(MyActivity.this, "Imie jest puste", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Imie jest puste", Toast.LENGTH_SHORT).show();
                 }
                 checkViewButton();
             }
         });
 
-        etNazw.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        etNazwisko.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 EditText editText = (EditText) v;
                 if (!checkEmptyText(editText.getText().toString()) && !hasFocus) {
-                    Toast.makeText(MyActivity.this, "Nazwisko jest puste", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Nazwisko jest puste", Toast.LENGTH_SHORT).show();
                 }
                 checkViewButton();
             }
@@ -73,10 +71,10 @@ public class MyActivity extends Activity {
                     try{
                         int num = Integer.parseInt(s.toString());
                         if (num < 5 || num > 15) {
-                            Toast.makeText(MyActivity.this, "Numer musi być od 5 do 15", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Numer musi być od 5 do 15", Toast.LENGTH_SHORT).show();
                         }
                     }catch (NumberFormatException nfe) {
-                        Toast.makeText(MyActivity.this, "Musi być numerem", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Musi być numerem", Toast.LENGTH_SHORT).show();
                     };
                 }
                 checkViewButton();
@@ -102,20 +100,24 @@ public class MyActivity extends Activity {
             srdnValue.setText(""+liczba);
             srdnValue.setVisibility(View.VISIBLE);
             etImie.setFocusable(false);
-            etNazw.setFocusable(false);
+            etNazwisko.setFocusable(false);
             etLiczba.setFocusable(false);
             String res_butt_text;
-            if  (liczba > 3) {
+            if  (liczba > 3)
+            {
                 res_butt_text = getResources().getString(R.string.super_text);
-            }else {
+            }
+            else
+            {
                 res_butt_text = getResources().getString(R.string.fail_text);
             }
 
             btnOceny.setText(res_butt_text);
             btnOceny.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    Toast.makeText(MyActivity.this, "Gratulacje! Otrzymujesz zaliczenie!", Toast.LENGTH_SHORT).show();
+                public void onClick(View v)
+                {
+                    Toast.makeText(MainActivity.this, "Gratulacje! Otrzymujesz zaliczenie!", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             });
@@ -124,7 +126,7 @@ public class MyActivity extends Activity {
     }
 
     private void checkViewButton() {
-        if (!checkEmptyText(etImie.getText().toString()) || !checkEmptyText(etNazw.getText().toString()) || !checkNumerFormat(etLiczba.getText().toString())) {
+        if (!checkEmptyText(etImie.getText().toString()) || !checkEmptyText(etNazwisko.getText().toString()) || !checkNumerFormat(etLiczba.getText().toString())) {
             btnOceny.setVisibility(View.GONE);
         }else {
             btnOceny.setVisibility(View.VISIBLE);

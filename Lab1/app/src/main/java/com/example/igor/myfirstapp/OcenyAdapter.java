@@ -47,7 +47,6 @@ public class OcenyAdapter extends ArrayAdapter<ModelOceny> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         View widok = null;
-        //tworzenie nowego wiersza
         if (convertView == null) {
             LayoutInflater pompka = cntxt.getLayoutInflater();
             widok = pompka.inflate(R.layout.list_item_ocen, null);
