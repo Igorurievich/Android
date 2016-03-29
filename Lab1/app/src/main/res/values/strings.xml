@@ -5,4 +5,12 @@
     <string name="oceny">Liczba ocen: </string>
     <string name="ocenyBtn">Oceny</string>
     <string name="title_activity_second_activity">second_activity</string>
+    <string name="liczba_ocen_button">Gotowe</string>
+    <string name="super_text">Super</string>
+    <string name="fail_text">Tym razem mi nie poszło</string>
+    <string name="btn_oceny">Oceny</string>
+    <string name="srednia_label">Srednia ocena</string>
+    <string name="liczba">Liczba ocen</string>
+    <string name="lb_nazwisko">Nazwisko</string>
+    <string name="lb_imie">Imie</string>
 </resources>
